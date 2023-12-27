@@ -7,7 +7,8 @@ const express = require ("express");
 // APP / PORT
 const app = express();
 const PORT = process.env.PORT || 3001;
-// MIDDILEWARE
+
+// MIDDILEWARES
 // stuff to get the req.body
 app.use(express.json());
 app.use(express.urlencoded({ extended:true }));
@@ -18,6 +19,7 @@ app.use(express.static("public"));
 // html routes - deliver pages
 // GET / - the home page
 app.get("/",(req,res)=> res.sendFile(path.join(__dirname, "public/index.html")))
+
 // api routes - deliver data
 app.get("/api/todos", (req, res)=>res.json ([
     {
